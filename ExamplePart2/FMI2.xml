@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fmiModelDescription
   fmiVersion="2.0"
-  modelName="ExamplePart1"
-  description="This model implements part 1 of the MasterSim example."
+  modelName="ExamplePart2"
+  description="This model implements part 2 of the MasterSim example."
   generationTool="Written by hand"
-  guid="{8615498b-60dc-43de-bea7-d200ce2bb32f}"
+  guid="{b8c3f344-7e32-4783-b8ec-cc021e8a785f}"
   numberOfEventIndicators="0">
 
   <CoSimulation
-    modelIdentifier="ExamplePart1"
+    modelIdentifier="ExamplePart2"
     canHandleVariableCommunicationStepSize="true"
     canNotUseMemoryManagementFunctions="true"
     canGetAndSetFMUstate="true"
@@ -29,22 +29,26 @@
 		<ScalarVariable name="time" valueReference="0" causality="independent" variability="continuous" description="Simulation time">
 			<Real/>
 		</ScalarVariable>
-		<ScalarVariable name="x1" valueReference="1" description="the first output" causality="output" variability="continuous" initial="calculated">
+		<ScalarVariable name="x1" valueReference="1" description="the first input" causality="input" variability="continuous">
+			<Real start="0"/>
+		</ScalarVariable>
+		<ScalarVariable name="x2" valueReference="2" description="the second input" causality="input" variability="continuous">
+			<Real start="0"/>
+		</ScalarVariable>
+		<ScalarVariable name="x3" valueReference="3" description="the only output" causality="output" variability="continuous" initial="calculated">
 			<Real/>
 		</ScalarVariable>
-		<ScalarVariable name="x2" valueReference="2" description="the second output" causality="output" variability="continuous" initial="calculated">
-			<Real/>
+		<ScalarVariable name="x4" valueReference="4" description="the third input" causality="input" variability="continuous">
+			<Real start="0"/>
 		</ScalarVariable>
 	</ModelVariables>
 
-	<ModelStructure>
+  <ModelStructure>
     <Outputs>
-      <Unknown index="2" dependencies="1"/>
-      <Unknown index="3" dependencies="1"/>
+      <Unknown index="4" dependencies="2 3 5"/>
     </Outputs>
     <InitialUnknowns>
-      <Unknown index="2" dependencies="1" dependenciesKind="dependent"/>
-      <Unknown index="3" dependencies="1" dependenciesKind="dependent"/>
+      <Unknown index="4" dependencies="2 3 5" dependenciesKind="dependent dependent dependent"/>
     </InitialUnknowns>
   </ModelStructure>
 
