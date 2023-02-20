@@ -62,7 +62,7 @@ void getContinuousStates(ModelInstance *comp, double x[], size_t nx) {
 
 void setContinuousStates(ModelInstance *comp, const double x[], size_t nx) {
     UNUSED(nx);
-    M(x4) = x[2];
+    M(x4) = x[0];
 }
 
 void getDerivatives(ModelInstance *comp, double dx[], size_t nx) {
