@@ -91,6 +91,10 @@ if (${FMI_VERSION} GREATER 2)
   set (MODEL_NAMES ${MODEL_NAMES} LinearTransform Clocks)
 endif ()
 
+if (${FMI_VERSION} GREATER 1)
+  set (MODEL_NAMES ${MODEL_NAMES} ExamplePart1 ExamplePart2 ExamplePart3)
+endif ()
+
 foreach (MODEL_NAME ${MODEL_NAMES})
 
 set(TARGET_NAME ${MODEL_NAME})
