@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmiModelDescription
+  fmiVersion="2.0"
+  modelName="ExamplePart3"
+  description="This model implements part 3 of the MasterSim example."
+  generationTool="Written by hand"
+  guid="{07f493df-5775-40d2-bd49-1a2b46323ced}"
+  numberOfEventIndicators="0">
+
+  <CoSimulation
+    modelIdentifier="ExamplePart3"
+    canHandleVariableCommunicationStepSize="true"
+    canNotUseMemoryManagementFunctions="true"
+    canGetAndSetFMUstate="true"
+    canSerializeFMUstate="true">
+    <SourceFiles>
+      <File name="all.c"/>
+    </SourceFiles>
+  </CoSimulation>
+
+  <LogCategories>
+    <Category name="logEvents" description="Log events"/>
+    <Category name="logStatusError" description="Log error messages"/>
+  </LogCategories>
+
+  <DefaultExperiment startTime="0" stopTime="10" stepSize="0.1"/>
+
+	<ModelVariables>
+		<ScalarVariable name="time" valueReference="0" causality="independent" variability="continuous" description="Simulation time">
+			<Real/>
+		</ScalarVariable>
+		<ScalarVariable name="x3" valueReference="1" description="the input" causality="input" variability="continuous">
+			<Real start="0"/>
+		</ScalarVariable>
+		<ScalarVariable name="x4" valueReference="2" description="the output" causality="output" variability="continuous" initial="calculated">
+			<Real/>
+		</ScalarVariable>
+        <ScalarVariable name="der(x4)" valueReference="3" causality="local" variability="continuous" initial="calculated">
+            <Real derivative="3"/>
+        </ScalarVariable>
+	</ModelVariables>
+
+  <ModelStructure>
+    <Outputs>
+      <Unknown index="3"/>
+    </Outputs>
+    <Derivatives>
+      <Unknown index="4"/>
+    </Derivatives>
+    <InitialUnknowns>
+      <Unknown index="3"/>
+      <Unknown index="4" dependencies="2" dependenciesKind="constant"/>
+    </InitialUnknowns>
+
+  </ModelStructure>
+
+</fmiModelDescription>

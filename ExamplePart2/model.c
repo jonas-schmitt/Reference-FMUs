@@ -71,16 +71,3 @@ Status setFloat64(ModelInstance* comp, ValueReference vr, const double values[],
     }
 }
 
-void getContinuousStates(ModelInstance *comp, double x[], size_t nx) {
-    UNUSED(nx);
-    x[0] = M(x1);
-    x[1] = M(x2);
-    x[2] = M(x4);
-}
-
-void setContinuousStates(ModelInstance *comp, const double x[], size_t nx) {
-    UNUSED(nx);
-    M(x1) = x[0];
-    M(x2) = x[1];
-    M(x4) = x[2];
-}
