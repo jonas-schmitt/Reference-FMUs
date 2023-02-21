@@ -6,7 +6,7 @@ void setStartValues(ModelInstance *comp) {
 }
 
 Status calculateValues(ModelInstance *comp) {
-    M(der_x4) = M(x3);
+    M(der_x4) = 2.0 * M(x3);
     return OK;
 }
 
